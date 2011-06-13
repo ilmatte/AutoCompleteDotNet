@@ -164,10 +164,10 @@ namespace AutoComplete
 
         /// <summary>
         /// Specifies the name of a property of the returned object type.
-        /// Such property will be used to fill the textbox once one of the items
-        /// in the dropdownlist has been selected.
-        /// If it is not specified the value in the property: 
-        /// ValueField will be used in the autocomplete initialization.
+        /// Such property will be used to display the descriptions of the items
+        /// in the dropdownlist.
+        /// If a LabelField property is not specified this property's value
+        /// will be used as LabelField value in the autocomplete initialization.
         /// </summary>
         [Category("AutoComplete")]
         [Description("The property of the object returned, to be displaied in the list.")]
@@ -175,10 +175,10 @@ namespace AutoComplete
 
         /// <summary>
         /// Specifies the name of a property of the returned object type.
-        /// Such property will be used to display the descriptions of the items
-        /// in the dropdownlist.
-        /// If a LabelField property is not specified this property's value
-        /// will be used as LabelField value in the autocomplete initialization.
+        /// Such property will be used to fill the textbox once one of the items
+        /// in the dropdownlist has been selected.
+        /// If it is not specified the value in the property: 
+        /// ValueField will be used in the autocomplete initialization.
         /// </summary>
         [Category("AutoComplete")]
         [Description("The property of the object selected, to be displaied in the textbox.")]

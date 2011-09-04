@@ -581,7 +581,7 @@
                  errorMessage,
                  noResultsMessage);
             string initializeAutoComplete = AutoCompleteInitializer.GetJsInitialization(settings);
-            scriptTagBuilder.SetInnerText(initializeAutoComplete);
+            scriptTagBuilder.InnerHtml = initializeAutoComplete;
             return scriptTagBuilder.ToString(TagRenderMode.Normal);
         }
         

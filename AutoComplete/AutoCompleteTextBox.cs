@@ -210,7 +210,7 @@ namespace AutoComplete
         /// Specifies the text to be displaied in the autosuggest list when
         /// an error occurred during the ajax request.
         /// Such property will be used to display an informational message
-        /// in the dropdownlist.
+        /// in the suggestions list.
         /// </summary>
         [Category("AutoComplete")]
         [Description("An informational message, to be displaied in the autosuggest list in case of error.")]
@@ -220,10 +220,10 @@ namespace AutoComplete
         /// Specifies the text to be displaied in the autosuggest list when
         /// an the ajax request returns an empty resultset.
         /// Such property will be used to display an informational message
-        /// in the dropdownlist.
+        /// in the suggestions list.
         /// </summary>
         [Category("AutoComplete")]
-        [Description("An informational message, to be displaied in the autosuggest list in case of emptry resultset.")]
+        [Description("An informational message, to be displaied in the autosuggest list in case of empty resultset.")]
         public string NoResultsMessage { get; set; }
 
         #endregion

@@ -11,10 +11,11 @@ For most of the time you will need only the _AutoComplete.dll_ but in the follow
 
 # Quick Start Guide
 
-[#Asp.Net](#Asp.Net) 
-[#Asp.Net MVC](#Asp.Net-MVC) 
+[Asp.Net](#aspnet)
+<BR/>
+[Asp.Net MVC](#aspnet-mvc)
 
-{anchor:Asp.Net}
+
 ## Asp.Net
 
 Let's see how to create an example application to test the **AutoCompleteTextBox** WebControl for Asp.Net.
@@ -258,7 +259,6 @@ For a complete description of all the properties available and more detailed exp
 
 You can download the full sample: **AutoCompleteNetExamples Source Code** at the download page.
 
-{anchor:Asp.Net MVC}
 ## Asp.Net MVC
 
 To test the **Asp.Net Mvc AutoComplete Extensions** just create a new Visual Studio Solution and add a new Asp.Net Mvc Web Application project.

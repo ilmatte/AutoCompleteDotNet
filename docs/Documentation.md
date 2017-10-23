@@ -82,7 +82,7 @@ public void ProcessRequest(HttpContext context)
 
 then add a new class named: **Country** defined as below:
 
-{code:c#}
+```csharp
 
 public class Country : IEquatable<Country>
 {
@@ -111,13 +111,13 @@ public class Country : IEquatable<Country>
 		return Name.GetHashCode() ^ Code.GetHashCode();
 	}
 }
-{code:c#}
+```
 
 The **IEquatable** implementation and the **GetHashCode** override are needed to avoid duplicate
 countries in the lists.
 Then add another class: **CountriesRepository** defined as below:
 
-{code:c#}
+```csharp
 
 public class CountriesRepository
 {
@@ -139,7 +139,7 @@ public class CountriesRepository
 		return result;
 	}
 }
-{code:c#}
+```
 
 Now you can set the first property as follows:
 
@@ -163,14 +163,14 @@ Now you have to made a choice: you can tell the WebControl to provide by itself 
 
 If you want to use the control in a page in which you already use JQuery for other purposes you will have your reference right in place in the head of the page:
 
-{code:aspx c#}
+```aspx
 
 <head runat="server">
     <title></title>
     <script type="text/javascript" src="/Scripts/jQuery-1.4.1.js"></script>
     <script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
 </head>
-{code:aspx c#}
+```
 
 If this is not the case you can simply set another property of **AutoCompleteTextBox**:
 
@@ -211,14 +211,14 @@ Just set the following property:
 
 add the following hidden field inside the form tag:
 
-{code:aspx c#}
+```aspx
 
 <asp:HiddenField ID="SelectedCountryHiddenField" runat="server" />
-{code:aspx c#}
+```
 
 and add the following block of javascript immediately after the opening tag of the form element of the page:
 
-{code:aspx c#}
+```csharp
 
 <script type="text/javascript">
 	//<![CDATA[
@@ -232,13 +232,13 @@ and add the following block of javascript immediately after the opening tag of t
 
 	//]]>
 </script>
-{code:aspx c#}
+```
 
 The argument passed to the javascript function (_selectedItem_) represents an instance of a **Country** object and exposes the same properties as its server side counterpart: **Name** and **Code**.
 
 The full declaration now is:
 
-{code:aspx c#}
+```aspx csharp
 
 <IM:AutoCompleteTextBox ID="CountriesAutoCompleteTextBox" runat="server" 
 			JsonDataSourceUrl="~/CountriesHandler.ashx"
@@ -246,7 +246,7 @@ The full declaration now is:
 			RegisterJQueryAndJQueryUI="true" 
 			NoResultsMessage = "No results"
 			OnClientSelection="SaveCodeForLaterUse" />
-{code:aspx c#}
+```
 
 **Note**:
 If you place the above script in the head section, the control (and the page as well) won't be able to manipulate the head anymore because the page header is readonly when there are codeblocks inside it.
@@ -283,42 +283,42 @@ Name it: **Search** and uncheck: _'Select master page'_.
 A new page: **Search.aspx** will open.
 Now you can add the markup for the AutoComplete control inside the main div of the page (together with a label):
 
-{code:aspx c#}
+```aspx csharp
 
 <label for="country">Country:</label>
 
 <%= Html.AutoCompleteTextBox("country", 
 			     new Uri("/Countries/SearchByFirstLetters", UriKind.RelativeOrAbsolute), 
 			     "Name") %>
-{code:aspx c#}
+```
 
 Visual Studio will warn you that it cannot find the **AutoCompleteTextBox** extension method.
 You need to instruct it about the namespace.
 You can do it once for all in the web.config of the application:
 Just open it and add:
 
-{code:xml}
+```xml
 
 <add namespace="AutoComplete"/>
-{code:xml}
+```
 
 to the namespaces in the tag:
 
-{code:xml}
+```xml
 
 <system.web>
     <pages>
         <namespaces>
-{code:xml}
+```
 
 or you can do it page by page using the import directive at the top of the page:
 
 
-{code:aspx c#}
+```aspx csharp
 
 <%@ Import Namespace="AutoComplete" %>
 
-{code:aspx c#}
+```
 
 In each case just rebuild the project and the Visual Studio error message will disappear.
 
@@ -331,7 +331,7 @@ Let's add to the controller the method that will be invoked when our view is loa
 The method, by convention, will be called: **Search** and we will replaced it to the method: **Index** created by the controller template.
 Here is the first method of our newly created controller:
 
-{code:c#}
+```csharp
 
 //
 // GET: /Countries/Search/
@@ -340,7 +340,7 @@ public ActionResult Search()
 {
 	return View();
 }
-{code:c#}
+```
 
 if you now type the url: _Countries/Search_ you will get the following javascript alert:
 
@@ -354,19 +354,19 @@ _IM.AutoComplete.js_
 
 Copy and paste the 2 files in the **Scripts** folder of your project and add the following references to the head of the **Search.aspx** view:
 
-{code:aspx c#}
+```aspx csharp
 
 <script type="text/javascript" src="/Scripts/jQuery-1.4.1.js"></script>
 <script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
 <script type="text/javascript" src="/Scripts/IM.AutoComplete.js"></script>
-{code:aspx c#}
+```
 
 Still the autocomplete functionality won't work unless we add to the controller a **SearchByFirstLetters** method returning a **JsonResult**, representing the required resource.
 Below you will see a simple way to provide such a resource just to test the Extension method.
 You need to add a couple of simple classes to your Asp.Net Mvc Web Application.
 First add a method named **SearchByFirstLetters** to your controller:
 
-{code:c#}
+```csharp
 
 public ActionResult SearchByFirstLetters(string startsWith)
 {
@@ -379,7 +379,7 @@ public ActionResult SearchByFirstLetters(string startsWith)
 	IEnumerable<Country> countries = repository.GetCountriesStartingWith(startsWith);
 	return Json(countries.ToList(), JsonRequestBehavior.AllowGet);
 }
-{code:c#}
+```
 
 **Note**:
 we're allowing the **SearchByFirstLetters** method to be invoked by e GET request because
@@ -387,7 +387,7 @@ internet explorer randomly causes HTTP errors when sending too many post request
 
 Now add the following two classes to the: **Models** folder.
 
-{code:c#}
+```csharp
 
 public class Country : IEquatable<Country>
 {
@@ -424,12 +424,12 @@ public class Country : IEquatable<Country>
 		return Name.GetHashCode() ^ Code.GetHashCode();
 	}
 }
-{code:c#}
+```
 
 The **IEquatable** implementation and the **GetHashCode** override are needed to avoid duplicate countries in the lists.
 Then add another class: **CountriesRepository** defined as below:
 
-{code:c#}
+```csharp
 
 public class CountriesRepository
 {
@@ -451,7 +451,7 @@ public class CountriesRepository
 		return result;
 	}
 }
-{code:c#}
+```
 
 Now you can run the web site and type the url: _Countries/Search_.
 You will get the page and can type the first 2 letters of a country to get suggestions.
@@ -462,12 +462,12 @@ Go to the folder in which you unzipped the release package and locate the file:
 
 Copy and paste it in the **Content** folder of your project and add the following reference to the head of the **Search.aspx** view:
 
-{code:html}
+```html
 
 <link href="/Content/jquery-ui.css"
 	  rel="stylesheet" 
 	  type="text/css" />
-{code:html}
+```
 
 If a theme has already been added to the page, this default theme is not necessary and could accidentally override the style defined in the page. 
 
@@ -493,25 +493,24 @@ uncheck the _'Select master page'_ checkbox.
 Remove the fields related to the **Code** property and the Actionlink at the bottom of the page.
 Replace:
 
-{code:aspx c#}
+```aspx csharp
 
 <%= Html.TextBoxFor(model => model.Name) %>
 
-{code:aspx c#}
+```
 
 with:
 
-{code:aspx c#}
+```aspx csharp
 
 <%= Html.AutoCompleteTextBoxFor(model => model.Name, 
 				new Uri("/Countries/SearchByFirstLetters", UriKind.RelativeOrAbsolute)) %>
-
-{code:aspx c#}
+```
 
 and place the label in the same div as the textbox.
 Add to the head of the page the same references as in the Search.aspx view:
 
-{code:html}
+```html
 
 <script type="text/javascript" src="/Scripts/jQuery-1.4.1.js"></script>
 <script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
@@ -519,11 +518,11 @@ Add to the head of the page the same references as in the Search.aspx view:
 <link href="/Content/jquery-ui.css"
 	  rel="stylesheet" 
 	  type="text/css" />
-{code:html}
+```
 
 The page will now look like the following:
 
-{code:aspx c#}
+```aspx csharp
 
 <%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<AspNetMvcAutoComplete.Models.Country>" %>
 
@@ -561,38 +560,38 @@ The page will now look like the following:
 <% } %>
 </body>
 </html>
-{code:aspx c#}
+```
 
 Add the **DisplayNameAttribute** to the **Name** property of the **Country** class if you want a meaningful label, e.g.:
 
-{code:c#}
+```csharp
 
 [DisplayNameAttribute("Country:")](DisplayNameAttribute(_Country__)) 
 public string Name { get; set; }
-{code:c#}
+```
 
 Add a method named **StronglyTypedSearch** to the controller (**CountriesController**):
 
-{code:c#}
+```csharp
 
 public ActionResult StronglyTypedSearch()
 {
 	return View();
 }
-{code:c#}
+```
 
 so that it will be invoked when typing the url: _'Countries/StronglyTypedSearch'_.
 
 If you add the following method to the controller, to manage the submit of the page, you will be able to debug and see the selected value sent back to the server:
 
-{code:c#}
+```csharp
 
 [AcceptVerbs(HttpVerbs.Post)](AcceptVerbs(HttpVerbs.Post))
 public ActionResult StronglyTypedSearch(Country country)
 {
 	return View(country);
 }
-{code:c#}
+```
 
 Now just run the website and type the above url.
 Type few letters in the textbox and select a country.

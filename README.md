@@ -1,4 +1,4 @@
-# AutoCompleteDotNet
+# AutoCompleteDotNet (for Asp.Net and Asp.Net MVC)
 
 AutoComplete.Net is a wrapper around the JQuery UI Autocomplete widget.
 It makes it easier to add autocomplete functionalities without having to bother with tons of javascript.

@@ -39,19 +39,16 @@ Place the cursor in the exact position in which you want to drop it, go to the T
 
 As you can see in the image above you will find the control registered at the top of the page:
 
-{code:aspx c#}
-
+```aspx
 <%@ Register Assembly="AutoComplete" Namespace="AutoComplete" TagPrefix="IM" %>
-{code:aspx c#}
-
+```
 and a control instance declared at the row where you placed the cursor:
 
-{code:aspx c#}
-
+```aspx
 <IM:AutoCompleteTextBox ID="AutoCompleteTextBox1" runat="server" 
                         JsonDataSourceUrl=""
                         ValueField="" />
-{code:aspx c#}
+```
 
 Maybe you need some formatting to see it exactly as above and maybe you want to change the ID (by removing the '1' at the end for example!).
 
@@ -68,8 +65,7 @@ You can add few simple classes to your web application (remember to add using st
 
 First add an **IHttpHandler** to your project, name it **CountriesHandler** and replace the **ProcessRequest** method with the following code:
 
-{code:c#}
-
+```csharp
 public void ProcessRequest(HttpContext context)
 {
 	context.Response.ContentType = "application/json";
@@ -82,7 +78,7 @@ public void ProcessRequest(HttpContext context)
 	JavaScriptSerializer serializer = new JavaScriptSerializer();
 	context.Response.Write(serializer.Serialize(countries));
 }
-{code:c#}
+```
 
 then add a new class named: **Country** defined as below:
 

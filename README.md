@@ -1,6 +1,6 @@
 # AutoCompleteDotNet (for Asp.Net and Asp.Net MVC)
 
-eAutoComplete.Net is a wrapper around the JQuery UI Autocomplete widget.
+AutoComplete.Net is a wrapper around the JQuery UI Autocomplete widget.
 It makes it easier to add autocomplete functionalities without having to bother with tons of javascript.
 Includes a WebControl for your Asp.Net web applications and a bunch of extension methods for your Asp.Net MVC web applications.
 Their purpose is to provide developers with an easy interface to the cool JQuery UI autocomplete Widget.

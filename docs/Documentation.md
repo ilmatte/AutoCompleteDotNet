@@ -212,9 +212,10 @@ Just set the following property:
 
 add the following hidden field inside the form tag:
 
-```aspx
+```HTML
 
 <asp:HiddenField ID="SelectedCountryHiddenField" runat="server" />
+
 ```
 
 and add the following block of javascript immediately after the opening tag of the form element of the page:

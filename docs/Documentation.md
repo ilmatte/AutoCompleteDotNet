@@ -240,7 +240,7 @@ The argument passed to the javascript function (_selectedItem_) represents an in
 
 The full declaration now is:
 
-```ASP
+```csharp
 
 <IM:AutoCompleteTextBox ID="CountriesAutoCompleteTextBox" runat="server" 
 			JsonDataSourceUrl="~/CountriesHandler.ashx"
@@ -284,7 +284,7 @@ Name it: **Search** and uncheck: _'Select master page'_.
 A new page: **Search.aspx** will open.
 Now you can add the markup for the AutoComplete control inside the main div of the page (together with a label):
 
-```aspx csharp
+```aspx
 
 <label for="country">Country:</label>
 
@@ -315,7 +315,7 @@ to the namespaces in the tag:
 or you can do it page by page using the import directive at the top of the page:
 
 
-```aspx csharp
+```aspx
 
 <%@ Import Namespace="AutoComplete" %>
 

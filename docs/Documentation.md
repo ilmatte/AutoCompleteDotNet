@@ -539,7 +539,7 @@ The page will now look like the following:
           type="text/css" />
 </head>
 <body>
-<% using (Html.BeginForm()) {%>
+<% using (Html.BeginForm()) { %>
 	<%= Html.ValidationSummary(true) %>
 	
 	<fieldset>

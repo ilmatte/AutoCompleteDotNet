@@ -158,7 +158,7 @@ Set the property as below:
 
 Now the control is configured correctly and the page will load but you will get an alert, warning you that you forgot to add a reference to JQuery library:
 
-![JQuery Alert](Documentation_JQueryalert.png)
+![JQuery Alert](Documentation_JQueryAlert.png)
 
 Now you have to made a choice: you can tell the WebControl to provide by itself a reference to the required javascript libraries (Jquery and JQueryUI) or to rely on the page in which it's contained to include references to the right javascript libraries.
 

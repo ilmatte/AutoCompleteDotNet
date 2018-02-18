@@ -7,4 +7,4 @@ Their purpose is to provide developers with an easy interface to the cool JQuery
 It's developed in C#.
 
 
-See Documentation: [here](https://github.com/ilmatte/AutoCompleteDotNet/blob/master/docs/Documentation.md)
+See Documentation: [here](docs/Documentation.md)

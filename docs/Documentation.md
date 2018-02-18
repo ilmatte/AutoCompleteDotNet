@@ -164,7 +164,7 @@ Now you have to made a choice: you can tell the WebControl to provide by itself 
 
 If you want to use the control in a page in which you already use JQuery for other purposes you will have your reference right in place in the head of the page:
 
-```aspx
+```ASP
 
 <head runat="server">
     <title></title>
@@ -212,7 +212,7 @@ Just set the following property:
 
 add the following hidden field inside the form tag:
 
-```HTML
+```ASP
 
 <asp:HiddenField ID="SelectedCountryHiddenField" runat="server" />
 
@@ -240,7 +240,7 @@ The argument passed to the javascript function (_selectedItem_) represents an in
 
 The full declaration now is:
 
-```aspx csharp
+```ASP
 
 <IM:AutoCompleteTextBox ID="CountriesAutoCompleteTextBox" runat="server" 
 			JsonDataSourceUrl="~/CountriesHandler.ashx"

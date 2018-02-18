@@ -240,7 +240,7 @@ The argument passed to the javascript function (_selectedItem_) represents an in
 
 The full declaration now is:
 
-```csharp
+```aspx
 
 <IM:AutoCompleteTextBox ID="CountriesAutoCompleteTextBox" runat="server" 
 			JsonDataSourceUrl="~/CountriesHandler.ashx"
@@ -355,7 +355,7 @@ _IM.AutoComplete.js_
 
 Copy and paste the 2 files in the **Scripts** folder of your project and add the following references to the head of the **Search.aspx** view:
 
-```aspx csharp
+```aspx
 
 <script type="text/javascript" src="/Scripts/jQuery-1.4.1.js"></script>
 <script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
@@ -494,7 +494,7 @@ uncheck the _'Select master page'_ checkbox.
 Remove the fields related to the **Code** property and the Actionlink at the bottom of the page.
 Replace:
 
-```aspx csharp
+```aspx
 
 <%= Html.TextBoxFor(model => model.Name) %>
 
@@ -502,7 +502,7 @@ Replace:
 
 with:
 
-```aspx csharp
+```aspx
 
 <%= Html.AutoCompleteTextBoxFor(model => model.Name, 
 				new Uri("/Countries/SearchByFirstLetters", UriKind.RelativeOrAbsolute)) %>
@@ -523,7 +523,7 @@ Add to the head of the page the same references as in the Search.aspx view:
 
 The page will now look like the following:
 
-```aspx csharp
+```aspx
 
 <%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<AspNetMvcAutoComplete.Models.Country>" %>
 

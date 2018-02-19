@@ -6,5 +6,7 @@ Includes a WebControl for your Asp.Net web applications and a bunch of extension
 Their purpose is to provide developers with an easy interface to the cool JQuery UI autocomplete Widget.
 It's developed in C#.
 
-
+<!---
 See Documentation: [here](https://github.com/ilmatte/AutoCompleteDotNet/blob/master/docs/Documentation.md)
+-->
+See Documentation: [here](https://ilmatte.github.io/AutoCompleteDotNet)
